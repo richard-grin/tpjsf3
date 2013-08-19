@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>Liste des employés</title>
+  </h:head>
+  <h:body>
+    <h:form prependId="false">
+
+      <p:dataTable id="dataTable" var="employe" value="#{employeBean.tousLesEmployes}"
+                   paginator="true" rows="5"
+                   paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                   rowsPerPageTemplate="5,10,15">
+        <f:facet name="header">
+          Liste des employés
+        </f:facet>
+        <p:column>
+          <f:facet name="header">
+            <h:outputText value="Id" />
+          </f:facet>
+          <h:outputText value="#{employe.id}" />
+        </p:column>
+        <p:column sortBy="#{employe.nom}"
+                  filterBy="#{employe.nom}">
+          <f:facet name="header">
+            <h:outputText value="Nom" />
+          </f:facet>
+          <h:outputText value="#{employe.nom}" />
+        </p:column>
+        <p:column sortBy="#{employe.salaire}">
+          <f:facet name="header">
+            <h:outputText value="Salaire" />
+          </f:facet>
+          <h:outputText value="#{employe.salaire}" >
+            <f:convertNumber type="currency"/>
+          </h:outputText>
+        </p:column>
+        <p:column sortBy="#{employe.departement.nom}"
+                  filterBy="#{employe.departement.nom}">
+          <f:facet name="header">
+            <h:outputText value="Nom du département" />
+          </f:facet>
+          <h:outputText value="#{employe.departement.nom}" />
+        </p:column>
+      </p:dataTable>
+    </h:form>
+  </h:body>
+</html>
+
