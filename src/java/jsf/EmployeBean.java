@@ -2,18 +2,18 @@ package jsf;
 
 import ejb.EmployeFacade;
 import entite.Employe;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- *
- * @author richard
+ * Backing bean pour les pages listeemployes et details.
  */
 @Named
 @ViewScoped
-public class EmployeBean {
+public class EmployeBean implements Serializable {
   @Inject
   private EmployeFacade employeFacade;
   
@@ -23,8 +23,6 @@ public class EmployeBean {
     if (listeEmployes == null) {
       listeEmployes = employeFacade.findAll();
     }
-//    System.out.println("employeFacase =" + employeFacade);
     return listeEmployes;
   }
-  
 }

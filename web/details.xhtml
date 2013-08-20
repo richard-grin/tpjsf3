@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <f:metadata>
+    <f:viewParam name="id" value="#{detailsEmployeBean.idEmployeEnCours}"/>
+    <f:viewAction action="#{detailsEmployeBean.chargerEmploye()}"/>
+  </f:metadata>
+
+  <h:head>
+    <title>Détails sur employé d'id #{detailsEmployeBean.employeEnCours.id}</title>
+  </h:head>
+  <h:body>
+    <f:view>
+      <h:form>
+        <h1><h:outputText value="Détails sur employé d'id #{detailsEmployeBean.employeEnCours.id}"/></h1>
+        <h:messages/>
+        <h:panelGrid columns="2">
+          <h:outputText value="Id:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.id}" title="Id"/>
+          <h:outputText value="Nom:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.nom}" title="Nom"/>
+          <h:outputText value="Salaire:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.salaire}" title="Salaire"/>
+          <h:outputText value="Rue:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.rue}" title="Rue"/>
+          <h:outputText value="Ville:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.ville}" title="Ville"/>
+          <h:outputText value="Pays:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.pays}" title="Pays"/>
+          <h:outputText value="Département:"/>
+          <h:outputText value="#{detailsEmployeBean.employeEnCours.departement.nom}" title="Département"/>
+        </h:panelGrid>
+        <h:link outcome="listeemployes" value="Liste des employés" />
+      </h:form>
+    </f:view>
+
+  </h:body>
+</html>
+
