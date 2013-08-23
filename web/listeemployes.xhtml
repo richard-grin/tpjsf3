@@ -49,6 +49,16 @@
           </f:facet>
           <h:outputText value="#{employe.departement.nom}" />
         </p:column>
+        <p:column>
+          <f:facet name="header">
+            <h:outputText value="Opérations sur la ligne" />
+          </f:facet>
+          <h:commandLink value="Supprimer la ligne" action="#{suppressionEmployeBean.supprimer(employe.id)}"/>
+          <br/>
+          <h:link value="Supprimer la ligne après confirmation" outcome="suppression">
+            <f:param name="id" value="#{employe.id}"/>
+          </h:link>
+        </p:column>
       </p:dataTable>
       <h:link value='Ajouter un employé' outcome='ajout'/>
     </h:form>

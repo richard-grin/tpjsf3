@@ -32,12 +32,14 @@ public class DetailsEmployeBean {
     this.idEmployeEnCours = idEmployeEnCours;
   }
 
-  public void chargerEmploye() {
+  public String chargerEmploye() {
     employeEnCours = employeFacade.find(idEmployeEnCours);
     if (employeEnCours == null) {
       FacesContext.getCurrentInstance().addMessage(null,
-              new FacesMessage("Aucun employé n'a l'id " + idEmployeEnCours));
+              new FacesMessage(FacesMessage.SEVERITY_ERROR, "Aucun employé n'a l'id " + idEmployeEnCours, null));
+      return "erreur";
     }
+    return null;
   }
 
   public Employe getEmployeEnCours() {
