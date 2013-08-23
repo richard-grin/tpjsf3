@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <f:metadata>
+    <f:viewAction action="#{ajoutEmployeBean.initEmploye()}"/>
+  </f:metadata>
+  <h:head>
+    <title>Ajouter un nouvel employé</title>
+  </h:head>
+  <h:body>
+    <f:view>
+      <h:form>
+        <h1><h:outputText value="Create/Edit"/></h1>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="Nom:" for="nom" />
+          <h:inputText id="nom" value="#{ajoutEmployeBean.employeEnCours.nom}" title="Nom" required="true" requiredMessage="Le nom est requis."/>
+          <h:outputLabel value="Salaire:" for="salaire" />
+          <h:inputText id="salaire" value="#{ajoutEmployeBean.employeEnCours.salaire}" title="Salaire" />
+          <h:outputLabel value="Rue:" for="rue" />
+          <h:inputText id="rue" value="#{ajoutEmployeBean.employeEnCours.rue}" title="Rue" />
+          <h:outputLabel value="Ville:" for="ville" />
+          <h:inputText id="ville" value="#{ajoutEmployeBean.employeEnCours.ville}" title="Ville" />
+          <h:outputLabel value="Pays:" for="pays" />
+          <h:inputText id="pays" value="#{ajoutEmployeBean.employeEnCours.pays}" title="Pays" />
+          <h:outputLabel value="Département:" for="departement" />
+          <h:selectOneMenu id="departement" value="#{ajoutEmployeBean.employeEnCours.departement}" title="Département" >
+            <f:selectItems value="#{ajoutEmployeBean.tousLesDepartements}"
+                           var='departement'
+                           itemLabel="#{departement.nom} (#{departement.id})"/>
+          </h:selectOneMenu>
+        </h:panelGrid>
+        <h:commandButton value="Enregistrer l'employé" action="#{ajoutEmployeBean.enregistrer()}"/>
+        <h:commandButton type='reset' value='Tout effacer'/>
+        <br/>
+        <h:link value="Voir tous les employés" outcome="listeemployes" />
+        <h:messages/>
+      </h:form>
+    </f:view>
+
+  </h:body>
+</html>
+

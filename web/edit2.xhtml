@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+  <f:metadata>
+    <f:viewParam name="id" value="#{edit2EmployeBean.id}"/>
+    <f:viewAction action="#{edit2EmployeBean.chargerEmploye()}"/>
+  </f:metadata>
+  <h:head>
+    <title>Modifier l'employe d'id  #{edit2EmployeBean.id}</title>
+  </h:head>
+  <h:body>
+    <f:view>
+      <h:form>
+        <h1><h:outputText value="Create/Edit"/></h1>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="Id:" for="id" />
+          <h:inputText id="id" value="#{edit2EmployeBean.id}" title="Id" required="true" requiredMessage="The Id field is required."/>
+          <h:outputLabel value="Nom:" for="nom" />
+          <h:inputText id="nom" value="#{edit2EmployeBean.nom}" title="Nom" required="true" requiredMessage="The Nom field is required."/>
+          <h:outputLabel value="Salaire:" for="salaire" />
+          <h:inputText id="salaire" value="#{edit2EmployeBean.salaire}" title="Salaire" />
+          <h:outputLabel value="Rue:" for="rue" />
+          <h:inputText id="rue" value="#{edit2EmployeBean.rue}" title="Rue" />
+          <h:outputLabel value="Ville:" for="ville" />
+          <h:inputText id="ville" value="#{edit2EmployeBean.ville}" title="Ville" />
+          <h:outputLabel value="Pays:" for="pays" />
+          <h:inputText id="pays" value="#{edit2EmployeBean.pays}" title="Pays" />
+          <h:outputLabel value="Departement:" for="departement" />
+          <h:selectOneMenu id="departement" value="#{edit2EmployeBean.departement}" title="Departement" >
+            <f:selectItems value="#{editEmployeBean.tousLesDepartements}"
+                           var='departement'
+                           itemLabel="#{departement.nom} (#{departement.id})"/>
+          </h:selectOneMenu>
+        </h:panelGrid>
+        <h:commandButton value="Enregistrer les modifications" action="#{edit2EmployeBean.enregistrer()}"/>
+        <h:messages/>
+      </h:form>
+    </f:view>
+
+  </h:body>
+</html>
+

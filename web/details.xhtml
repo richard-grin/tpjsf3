@@ -33,6 +33,15 @@
           <h:outputText value="#{detailsEmployeBean.employeEnCours.departement.nom}" title="Département"/>
         </h:panelGrid>
         <h:link outcome="listeemployes" value="Liste des employés" />
+        <br/>
+        <h:link outcome="edit" value="Modifier cet employé">
+          <f:param name="id" value="#{detailsEmployeBean.employeEnCours.id}"/>
+        </h:link>
+        <br/><br/>
+        <h:link outcome="edit2" value="Modifier cet employé avec portée requête" >
+          <f:param name="id" value="#{detailsEmployeBean.employeEnCours.id}"/>
+        </h:link>
+          
       </h:form>
     </f:view>
 
